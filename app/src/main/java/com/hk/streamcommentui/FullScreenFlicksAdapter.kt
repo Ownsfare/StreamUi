@@ -100,13 +100,11 @@ class FullScreenFlicksAdapter(
         val bottomSheetFragment = CommentBottomSheet(holder.videoView)
         holder.commentBtn.setOnClickListener{
             bottomSheetFragment.show((context as AppCompatActivity).supportFragmentManager,"BottomSheetDialog")
-//            holder.videoView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,860)
             seekPosition = holder.videoView.currentPosition
             holder.videoView.pause()
             }
         holder.backIv.setOnClickListener{
             listener((position+pos)%videoList.size)
-//            Log.d("xyz",((position+pos)%videoList.size).toString())
         }
     }
 

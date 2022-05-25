@@ -18,7 +18,8 @@ class MainScreenFlicksAdapter(
     var context: Context,
 //    var posBack: Int,
 //    var temp: Int,
-    var listener: (Int) -> Unit
+    var listener: (Int) -> Unit,
+    var listener2: (Int) -> Unit   //
 ) :
     RecyclerView.Adapter<MainScreenFlicksAdapter.FlicksViewHolder>() {
 
@@ -29,6 +30,7 @@ class MainScreenFlicksAdapter(
         var seekBar: SeekBar? = itemView.findViewById(R.id.seekBar)
         private val updateHandler: Handler = Handler()
         var commentBtn: ImageView = itemView.findViewById(R.id.commentImageView)
+        var backIv: ImageView = itemView.findViewById(R.id.backImageView)    //backIv
 
 
 
@@ -102,6 +104,11 @@ class MainScreenFlicksAdapter(
 
         holder.videoView.setOnClickListener{
             listener(position)
+            holder.videoView.resume()
+        }
+        holder.backIv.setOnClickListener {                      //
+            listener2(position)
+            holder.videoView.resume()
         }
     }
 

@@ -35,11 +35,14 @@ class MainFlickScreen : AppCompatActivity() {
         videoList?.add(FlicksModelClass("android.resource://" + getPackageName() + "/" + R.raw.three,"abc","abc"))
 
 
-        adapter = MainScreenFlicksAdapter(videoList as ArrayList<FlicksModelClass>,this){ position ->
-            val intent = Intent(this,FlicksFullScreen::class.java)
-            intent.putExtra("position",position)
-            startActivity(intent)
-        }
+//        adapter = MainScreenFlicksAdapter(videoList as ArrayList<FlicksModelClass>,this){ position ->
+//            val intent = Intent(this,FlicksFullScreen::class.java)
+//            intent.putExtra("position",position)
+//            startActivity(intent)
+//        }
+        adapter = MainScreenFlicksAdapter(videoList as ArrayList<FlicksModelClass>,this,{supportActionBar?.hide()},{ supportActionBar ?.show() })
+
+
         viewPager1?.setAdapter(adapter)
 
 

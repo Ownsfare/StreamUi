@@ -49,26 +49,19 @@ class CommentBottomSheet(
         recyclerView.adapter = bottomSheetAdapter
 
 
-//        val bottomSheetBehavior = BottomSheetBehavior.from(view)
-//        bottomSheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
-//
-//        val layout: CoordinatorLayout = view.findViewById(R.id.bottomSheetLayout)
-//        layout.minimumHeight = Resources.getSystem().displayMetrics.heightPixels
 
     }
     
 
     override fun onDismiss(dialog: DialogInterface) {
         super.onDismiss(dialog)
-//        videoView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT)
-//        Log.d("seekPos", seekPosition.toString())
+
         if(seekPosition != null){
             videoView.seekTo(seekPosition!!)
             videoView.start()
         }else{
             videoView.resume()
         }
-
     }
 
 }
